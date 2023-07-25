@@ -44,12 +44,25 @@ static int print_percent(va_list args)
 	return (write(1, "%", 1));
 }
 
+/**
+ * print_custom_r - print custom character
+ *@args: arguments
+ *
+ * Return: arguments
+ */
+static int print_custom_r(va_list args)
+{
+	(void)args;
+	return (write(1, "%r", 2));
+}
+
 static const ConvSpecifierInfo convHandlers[] =
 
 {
 	{'c', &print_char},
 	{'s', &print_string},
-	{'%', &print_percent}
+	{'%', &print_percent},
+	{'r', &print_custom_r}
 };
 /**
  * _printf - print to stdout
