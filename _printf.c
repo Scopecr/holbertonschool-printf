@@ -6,17 +6,18 @@
  * _strlen - length of a string
  * @str: pointer
  *
- * Return: lenght of the string
+ * Return: length of the string
  */
 
 int _strlen(const char *str)
 {
 	int len = 0;
+
 	while (str[len] != '\0')
 	{
 		len++;
 	}
-	return len;
+	return (len);
 }
 
 /**
@@ -25,16 +26,17 @@ int _strlen(const char *str)
  *
  * Return: count
  */
-char* _itoa(int num)
+char *_itoa(int num)
 {
 	int count = 0;
 	int temp = num;
 	int i;
 
 	char *str = (char *)malloc((count + 1) * sizeof(char));
+
 	if (str == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	while (temp != 0)
@@ -49,7 +51,7 @@ char* _itoa(int num)
 		num /= 10;
 	}
 	str[count] = '\0';
-	return str;
+	return (str);
 }
 
 /**
@@ -64,8 +66,8 @@ int _printf(const char *format, ...)
 	int i;
 
 	va_list args;
-	va_start(args, format);
 
+	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -73,10 +75,13 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			char c = format[i];
+
 			write(STDOUT_FILENO, &c, 1);
 			printed_chars++;
 		}
-		else {
+
+		else
+		{
 			i++;
 
 			switch (format[i])
@@ -84,6 +89,7 @@ int _printf(const char *format, ...)
 				case 'c':
 					{
 						char c = va_arg(args, int);
+
 						write(STDOUT_FILENO, &c, 1);
 						printed_chars++;
 						break;
@@ -92,27 +98,31 @@ int _printf(const char *format, ...)
 					{
 						char *str = va_arg(args, char*);
 						int str_len = _strlen(str);
+
 						write(STDOUT_FILENO, str, str_len);
 						printed_chars += str_len;
 						break;
 					}
-				case '%': 
+				case '%':
 					{
 						char c = '%';
+
 						write(STDOUT_FILENO, &c, 1);
 						printed_chars++;
 						break;
 					}
-				case 'd': case 'i': 
+				case 'd': case 'i':
 					{
 						int num = va_arg(args, int);
 						char *str = _itoa(num);
+
 						if (str != NULL)
 						{
 							int str_len = _strlen(str);
+
 							write(STDOUT_FILENO, str, str_len);
 							printed_chars += str_len;
-							free(str); 
+							free(str);
 						}
 						break;
 					}
@@ -120,6 +130,7 @@ int _printf(const char *format, ...)
 					{
 
 						char c = '%';
+
 						write(STDOUT_FILENO, &c, 1);
 						c = format[i];
 						write(STDOUT_FILENO, &c, 1);
@@ -132,5 +143,5 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return printed_chars;
+	return (printed_chars);
 }
