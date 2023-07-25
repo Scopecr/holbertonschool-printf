@@ -1,14 +1,13 @@
-#include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+
 /**
  * _strlen - length of a string
  * @str: pointer
  *
  * Return: length of the string
  */
-
 int _strlen(const char *str)
 {
 	int len = 0;
@@ -21,10 +20,10 @@ int _strlen(const char *str)
 }
 
 /**
- * _itoa - count of string
+ * _itoa - convert an integer to a string
  * @num: number
  *
- * Return: count
+ * Return: the string representation of the number
  */
 char *_itoa(int num)
 {
@@ -55,10 +54,33 @@ char *_itoa(int num)
 }
 
 /**
- * _printf - print output to stdout
- * @format: pointer
+ * _write_char - write a character to stdout
+ * @c: the character to write
  *
- * Return: string
+ * Return: number of characters written (1 in this case)
+ */
+int _write_char(char c)
+{
+	return (write(STDOUT_FILENO, &c, 1));
+}
+
+/**
+ * _write_str - write a string to stdout
+ * @str: pointer to the string to write
+ *
+ * Return: number of characters written (excluding the null byte)
+ */
+int _write_str(char *str)
+{
+	int len = _strlen(str);
+	return (write(STDOUT_FILENO, str, len));
+}
+
+/**
+ * _printf - print output to stdout according to a format
+ * @format: pointer to the format string
+ *
+ * Return: the number of characters printed (excluding the null byte)
  */
 int _printf(const char *format, ...)
 {
@@ -66,20 +88,14 @@ int _printf(const char *format, ...)
 	int i;
 
 	va_list args;
-
 	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-
 		if (format[i] != '%')
 		{
-			char c = format[i];
-
-			write(STDOUT_FILENO, &c, 1);
-			printed_chars++;
+			printed_chars += _write_char(format[i]);
 		}
-
 		else
 		{
 			i++;
@@ -89,52 +105,24 @@ int _printf(const char *format, ...)
 				case 'c':
 					{
 						char c = va_arg(args, int);
-
-						write(STDOUT_FILENO, &c, 1);
-						printed_chars++;
+						printed_chars += _write_char(c);
 						break;
 					}
 				case 's':
 					{
 						char *str = va_arg(args, char*);
-						int str_len = _strlen(str);
-
-						write(STDOUT_FILENO, str, str_len);
-						printed_chars += str_len;
+						printed_chars += _write_str(str);
 						break;
 					}
 				case '%':
 					{
-						char c = '%';
-
-						write(STDOUT_FILENO, &c, 1);
-						printed_chars++;
-						break;
-					}
-				case 'd': case 'i':
-					{
-						int num = va_arg(args, int);
-						char *str = _itoa(num);
-
-						if (str != NULL)
-						{
-							int str_len = _strlen(str);
-
-							write(STDOUT_FILENO, str, str_len);
-							printed_chars += str_len;
-							free(str);
-						}
+						printed_chars += _write_char('%');
 						break;
 					}
 				default:
 					{
-
-						char c = '%';
-
-						write(STDOUT_FILENO, &c, 1);
-						c = format[i];
-						write(STDOUT_FILENO, &c, 1);
-						printed_chars += 2;
+						printed_chars += _write_char('%');
+						printed_chars += _write_char(format[i]);
 						break;
 					}
 			}
@@ -145,3 +133,4 @@ int _printf(const char *format, ...)
 
 	return (printed_chars);
 }
+
