@@ -8,7 +8,7 @@
  *
  * Return: character
  */
-static int print_char(va_list args)
+int print_char(va_list args)
 {
 	int c = va_arg(args, int);
 
@@ -21,7 +21,7 @@ static int print_char(va_list args)
  *
  * Return: string
  */
-static int print_string(va_list args)
+int print_string(va_list args)
 {
 	const char *str = va_arg(args, const char *);
 	int count = 0;
@@ -38,7 +38,7 @@ static int print_string(va_list args)
  *
  * Return: percent sign
  */
-static int print_percent(va_list args)
+int print_percent(va_list args)
 {
 	(void)args;
 	return (write(1, "%", 1));
@@ -50,13 +50,14 @@ static int print_percent(va_list args)
  *
  * Return: arguments
  */
-static int print_custom_r(va_list args)
+
+int print_custom_r(va_list args)
 {
 	(void)args;
 	return (write(1, "%r", 2));
 }
 
-static const ConvSpecifierInfo convHandlers[] =
+const ConvSpecifierInfo convHandlers[] =
 
 {
 	{'c', &print_char},
