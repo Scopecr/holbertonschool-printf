@@ -1,11 +1,13 @@
-#ifndef PRINTF
-#define PRINTF
-int _printf(const char *format, ...);
-int _strlen(const char *str);
-char* _itoa(int num);
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
+#ifndef PRINTF_H
+#define PRINTF_H
 
+int _printf(const char *format, ...);
+typedef int (*ConvHandler)(va_list args);
+
+typedef struct
+{
+	char specifier;
+	ConvHandler handler;
+} ConvSpecifierInfo;
 
 #endif
