@@ -1,96 +1,96 @@
+#include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-
+#include "main.h"
 /**
- * _strlen - Calculate the length of a string.
- * @str: Pointer to the string.
+ * print_char - print character to stdout
+ * @args: arguments to be passed
  *
- * Return: Length of the string.
+ * Return: character
  */
-int _strlen(const char *str)
+static int print_char(va_list args)
 {
-    int len = 0;
+	int c = va_arg(args, int);
 
-    while (str[len] != '\0')
-    {
-        len++;
-    }
-    return (len);
+	return (write(1, &c, 1));
 }
 
 /**
- * _write_char - Write a character to stdout.
- * @c: The character to write.
+ * print_string - print a string to stdout
+ * @args: arguments to be passed
  *
- * Return: Number of characters written (1 in this case).
+ * Return: string
  */
-int _write_char(char c)
+static int print_string(va_list args)
 {
-    return (write(STDOUT_FILENO, &c, 1));
+	const char *str = va_arg(args, const char *);
+	int count = 0;
+
+	while (*str)
+	{
+		count += write(1, str++, 1);
+	}
+	return (count);
+}
+/**
+ * print_percent - print the percent sign
+ * @args: arguments to be passed
+ *
+ * Return: percent sign
+ */
+static int print_percent(va_list args)
+{
+	(void)args;
+	return (write(1, "%", 1));
 }
 
-/**
- * _write_str - Write a string to stdout.
- * @str: Pointer to the string to write.
- *
- * Return: Number of characters written (excluding the null byte).
- */
-int _write_str(char *str)
-{
-    int len = _strlen(str);
-    return (write(STDOUT_FILENO, str, len));
-}
+static const ConvSpecifierInfo convHandlers[] =
 
+{
+	{'c', &print_char},
+	{'s', &print_string},
+	{'%', &print_percent}
+};
 /**
- * _printf - Print output to stdout according to a format.
- * @format: Pointer to the format string.
+ * _printf - print to stdout
+ * @format: pointer to a constant character
+ * ...: variable arguments
  *
- * Return: The number of characters printed (excluding the null byte).
+ * Return: arguments
  */
 int _printf(const char *format, ...)
 {
-    int printed_chars = 0;
-    int i;
+	unsigned int i;
+	int count = 0;
 
-    va_list args;
-    va_start(args, format);
+	va_list args;
 
-    for (i = 0; format[i] != '\0'; i++)
-    {
-        if (format[i] != '%')
-        {
-            printed_chars += _write_char(format[i]);
-        }
-        else
-        {
-            i++;
+	va_start(args, format);
 
-            if (format[i] == '\0')
-                break;
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			for (i = 0; i < sizeof(convHandlers) / sizeof(convHandlers[0]); i++)
+			{
+				if (*format == convHandlers[i].specifier)
+				{
+					count += convHandlers[i].handler(args);
+					break;
+				}
+			}
+			if (i == sizeof(convHandlers) / sizeof(convHandlers[0]))
+			{
 
-            if (format[i] == 'c')
-            {
-                char c = va_arg(args, int);
-                printed_chars += _write_char(c);
-            }
-            else if (format[i] == 's')
-            {
-                char *str = va_arg(args, char*);
-                printed_chars += _write_str(str);
-            }
-            else if (format[i] == '%')
-            {
-                printed_chars += _write_char('%');
-            }
-            else
-            {
-                printed_chars += _write_char('%');
-                printed_chars += _write_char(format[i]);
-            }
-        }
-    }
+			}
+		} else
+		{
+			count += write(1, format, 1);
+		}
+		format++;
+	}
 
-    va_end(args);
-
-    return (printed_chars);
+	va_end(args);
+	return (count);
 }
