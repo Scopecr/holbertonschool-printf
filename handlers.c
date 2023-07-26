@@ -8,7 +8,7 @@ const ConvSpecifierInfo convHandlers[] =
   {'c', &print_char},
   {'s', &print_string},
   {'%', &print_percent},
-  {'r', print_anything}
+  {'r', &print_anything}
 };
 
 int print_char(va_list args)
