@@ -3,31 +3,19 @@
 
 #include <stdarg.h>
 
-typedef int (*convHandler)(va_list args);
-
-
 typedef struct ConvSpecifierInfo ConvSpecifierInfo;
 
 int _printf(const char *format, ...);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
-int print_custom_r(va_list args);
+int print_anything(va_list args);
 
 struct ConvSpecifierInfo
 {
   char specifier;
-  convHandler handler;
+  int (*handler)(va_list args);
 };
-
-
-const ConvSpecifierInfo convHandlers[] =
-{
-  {'c', &print_char},
-  {'s', &print_string},
-  {'%', &print_percent},
-  {'r', &print_custom_r}
-};
-
 
 #endif
+
