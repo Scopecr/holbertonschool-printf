@@ -14,6 +14,20 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_custom_r(va_list args);
 
-extern const ConvSpecifierInfo convHandlers[];
+struct ConvSpecifierInfo
+{
+  char specifier;
+  convHandler handler;
+};
+
+
+const ConvSpecifierInfo convHandlers[] =
+{
+  {'c', &print_char},
+  {'s', &print_string},
+  {'%', &print_percent},
+  {'r', &print_custom_r}
+};
+
 
 #endif
