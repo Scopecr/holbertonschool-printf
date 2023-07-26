@@ -41,12 +41,6 @@ int print_anything(va_list args)
 
     count += write(1, "%", 1);
 
-    while (*format != '\0' && *format != '%')
-    {
-        count += write(1, format, 1);
-        format++;
-    }
-
     if (*format == '%')
     {
         count += write(1, format, 1);
@@ -54,4 +48,3 @@ int print_anything(va_list args)
 
     return count;
 }
-
