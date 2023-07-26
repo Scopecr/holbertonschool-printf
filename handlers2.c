@@ -4,6 +4,13 @@
 #include "main.h"
 
 
+struct ConvSpecifierInfo
+{
+    char specifier;
+    convHandler handler;
+};
+
+
 const ConvSpecifierInfo convHandlers[] =
 {
     {'c', &print_char},
