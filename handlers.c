@@ -3,6 +3,14 @@
 #include <unistd.h>
 #include "main.h"
 
+const ConvSpecifierInfo convHandlers[] =
+{
+  {'c', &print_char},
+  {'s', &print_string},
+  {'%', &print_percent},
+  {'r', print_anything}
+};
+
 int print_char(va_list args)
 {
     int c = va_arg(args, int);
@@ -26,8 +34,24 @@ int print_percent(va_list args)
     return write(1, "%", 1);
 }
 
-int print_custom_r(va_list args)
+int print_anything(va_list args)
 {
-    (void)args;
-    return write(1, "%r", 2);
+    int count = 0;
+    const char *format = va_arg(args, const char *);
+
+    count += write(1, "%", 1);
+
+    while (*format != '\0' && *format != '%')
+    {
+        count += write(1, format, 1);
+        format++;
+    }
+
+    if (*format == '%')
+    {
+        count += write(1, format, 1);
+    }
+
+    return count;
 }
+
