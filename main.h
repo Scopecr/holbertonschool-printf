@@ -1,7 +1,6 @@
 #ifndef PRINTF_H
 #define PRINTF_H
 
-int _printf(const char *format, ...);
 typedef int (*ConvHandler)(va_list args);
 
 typedef struct
@@ -10,4 +9,11 @@ typedef struct
 	ConvHandler handler;
 } ConvSpecifierInfo;
 
+int _printf(const char *format, ...);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(va_list args);
+int print_custom_r(va_list args);
+
+extern const ConvSpecifierInfo convHandlers[];
 #endif
