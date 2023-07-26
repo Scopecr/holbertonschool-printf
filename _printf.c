@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
+
 /**
  * _printf - formatted output to stdout
  * @format: pointer to a constant character
@@ -9,6 +10,9 @@
  *
  * Return: count
  */
+
+extern const ConvSpecifierInfo convHandlers[];
+
 int _printf(const char *format, ...)
 {
 	unsigned int i;
@@ -23,7 +27,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			for (i = 0; i < sizeof(convHandlers) / sizeof(convHandlers[0]); i++)
+			for (i = 0; i < 3; i++)
 			{
 				if (*format == convHandlers[i].specifier)
 				{
@@ -31,11 +35,9 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			if (i == sizeof(convHandlers) / sizeof(convHandlers[0]))
-			{
-
-			}
-		} else
+			
+		}
+		else
 		{
 			count += write(1, format, 1);
 		}
