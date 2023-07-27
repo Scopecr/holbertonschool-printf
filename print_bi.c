@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- *print_bi -converts dec to decimal
+ *print_bi - converts dec to decimal
  * @n: decimal number
  * Return: times of number printed
  */
 
-int print_di(unsigned int n)
+int print_bi(unsigned int n)
 {
 	unsigned int a, b, c, d, f;
 	int count = 0;
