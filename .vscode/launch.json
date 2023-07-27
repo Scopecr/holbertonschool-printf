@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/Users/waltercarrion/Desktop/github/holbertonschool-printf-1",
-      "program": "/Users/waltercarrion/Desktop/github/holbertonschool-printf-1/build/Debug/outDebug",
+      "cwd": "/home/user/holbertonschool-printf/holbertonschool-printf-2",
+      "program": "/home/user/holbertonschool-printf/holbertonschool-printf-2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
