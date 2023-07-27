@@ -2,16 +2,16 @@ README.md
 
 Group Project
 
-C library function printf printing formatted output to stdout.
-part of standard library <stdio.h>
+C library function printf for printing formatted output to stdout.
+printf is part of standard library #include <stdio.h>
 
 Syntax:
 printf("format String/format specifier", Arguments);
 
 Specifiers:
 "" start and end of the string to be printed
-format string is a string that specifies the output
-format specifier to print the value of any variable such as a character and an integer value
+format string: is a string that specifies the output
+format specifier: to print the value of any variable such as a character and an integer value
 
 Format Specifiers:
 %c print a single character
