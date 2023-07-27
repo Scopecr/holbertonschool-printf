@@ -10,13 +10,13 @@
  *
  * Return: count
  */
-
 extern const ConvSpecifierInfo convHandlers[];
 
 int _printf(const char *format, ...)
 {
 	unsigned int i;
 	int count = 0;
+	int len = 0;
 
 	va_list args;
 
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			for (i = 0; i < 3; i++)
+			for (i = 0; i < 5; i++)
 			{
 				if (*format == convHandlers[i].specifier)
 				{
@@ -35,15 +35,15 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			
+
 		}
 		else
 		{
 			count += write(1, format, 1);
+			len++;
 		}
 		format++;
 	}
-
 	va_end(args);
 	return (count);
 }
