@@ -5,7 +5,7 @@
  * Return: times of number printed
  */
 
-int print_bi(unsigned int n)
+int print_di(unsigned int n)
 {
 	unsigned int a, b, c, d, f;
 	int count = 0;
