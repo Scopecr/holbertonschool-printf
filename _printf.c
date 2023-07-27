@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			for (i = 0; i < 5; i++)
+			for (i = 0; i < 7; i++)
 			{
 				if (*format == convHandlers[i].specifier)
 				{
