@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+
 /**
  *print_hexaup - prints numbers in hexadecimal with upper numbers
  *@n: unsigned variable interger

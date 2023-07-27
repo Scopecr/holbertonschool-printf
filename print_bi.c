@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *print_bi -converts dec to decimal
+ *print_bi - converts dec to decimal
  * @n: decimal number
  * Return: times of number printed
  */

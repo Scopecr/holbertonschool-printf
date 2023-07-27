@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * print_hexalow - convert unsigned int in hexadecimal
  * @n: unsigned int
