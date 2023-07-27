@@ -27,7 +27,7 @@ int print_char(va_list args)
 
 	count++;
 	return (write(1, &c, 1));
-	return(count);
+	return (count);
 }
 
 /**
@@ -59,8 +59,8 @@ int print_percent(va_list args)
 	int count = 0;
 	(void)args;
 	count++;
-	return(write(1, "%", 1));
-	return(count);
+	return (write(1, "%", 1));
+	return (count);
 }
 /**
  * print_anything - print any character
@@ -74,6 +74,7 @@ int print_anything(va_list args)
 	const char *format = va_arg(args, const char *);
 
 	const char c = *format;
+
 	count += write(1, "%", 1);
 
 	format++;
@@ -83,7 +84,7 @@ int print_anything(va_list args)
 	}
 
 	count++;
-	return count;
+	return (count);
 }
 
 /**
@@ -103,7 +104,7 @@ int print_i(va_list args)
 
 	if (num == 0)
 	{
-		return _putchar('0');
+		return (_putchar('0'));
 	}
 
 	if (num < 0)
@@ -131,35 +132,36 @@ int print_i(va_list args)
  *
  * Return: len
  */
+
 int print_d(va_list args)
 {
 	int num_str[12];
-    int num;
-    int len = 0;
-    int i;
+	int num;
+	int len = 0;
+	int i;
 
 	num = va_arg(args, int);
 
-    if (num == 0)
-    {
-        return _putchar('0');
-    }
+	if (num == 0)
+	{
+		return (_putchar('0'));
+	}
 
-    if (num < 0)
-    {
-        _putchar('-');
-        num = -num;
-    }
+	if (num < 0)
+	{
+		_putchar('-');
+		num = -num;
+	}
 
-    while (num != 0)
-    {
-        num_str[len++] = num % 10 + '0';
-        num /= 10;
-    }
+	while (num != 0)
+	{
+		num_str[len++] = num % 10 + '0';
+		num /= 10;
+	}
 
-    for (i = len - 1; i >= 0; i--)
-    {
-        _putchar(num_str[i]);
-    }
-    return len;
+	for (i = len - 1; i >= 0; i--)
+	{
+		_putchar(num_str[i]);
+	}
+	return (len);
 }
