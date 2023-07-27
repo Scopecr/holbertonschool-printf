@@ -2,28 +2,37 @@
 .SH NAME
 _printf \ print formatted output to stdout
 .SH SYNOPSIS
+.B #include\ "main.h"
+.P
 .B _printf
 Format [Argument]
+.SH COMPILE
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 .SH DESCRIPTION
 int _printf(const char *format,...);
 .TP
-in this home made version _printf is behaving like printf from the standard library.
-.SH OPTIONS
-("%c"); ("%s"); ("%%"); ("%i"); (%"d");
+In this home made version _printf is behaving like printf from the standard library.
+.RE
+The function prints output to stdout(standard output) in the order the arguments are given.
+In case of format specifiers, see below the options:
 .TP
-\fBc
+\fB%c
 print single character
 .TP
-\fBs
+\fB%s
 print string
 .TP
 \fB%
 print percentage sign
 .TP
-\fBi
+\fB%i
 print integer number
 .TP
-\fBd
+\fB%d
 print decimal numbers
+.SH RETURN
+Returns number of times printed
+.SH BUGS
+no bugs detected yet
 .SH AUTHORS
 Walter Carrion and Nadja Miranda
