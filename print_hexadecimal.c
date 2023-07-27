@@ -7,13 +7,13 @@
 
 int print_hexalow(unsigned int n)
 {
-	int i, j, reminder. count = 0;
+	int i, j, reminder, count = 0;
 	unsigned int num_copy = n;
 	char *hexadecimal;
 
 	if (n == 0)
 		return (_putchar('0'));
-	while (num_copy ! = 0)
+	while (num_copy != 0)
 	{
 		num_copy /= 16;
 		count++;
@@ -21,7 +21,7 @@ int print_hexalow(unsigned int n)
 	hexadecimal = malloc(count);
 	for (i = 0; n != 0; i++)
 	{
-		remainder = n % 16;
+		reminder = n % 16;
 		if (reminder < 10)
 		{
 			hexadecimal[i] = reminder + '0';
