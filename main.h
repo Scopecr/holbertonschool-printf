@@ -12,6 +12,7 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_anything(va_list args);
 int print_bi(unsigned int n);
+int print_hexalow(unsigned int n);
 
 /**
  * struct ConvSpecifierInfo - Struct ConvSpecifierInfo
