@@ -1,10 +1,29 @@
 .TH _printf
 .SH NAME
-_printf \- print formatted output to stdout
+_printf \ print formatted output to stdout
 .SH SYNOPSIS
 .B _printf
 Format [Argument]
 .SH DESCRIPTION
-.B _printf
-This is a home made version of printf.
-
+int _printf(const char *format,...);
+.TP
+in this home made version _printf is behaving like printf from the standard library.
+.SH OPTIONS
+("%c"); ("%s"); ("%%"); ("%i"); (%"d");
+.TP
+\fBc
+print character
+.TP
+\fBs
+print string
+.TP
+\fB%
+print percentage sign
+.TP
+\fBi
+print numbers
+.TP
+\fBd
+print numbers
+.SH AUTHORS
+Walter Carrion and Nadja Miranda
