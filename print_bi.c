@@ -1,6 +1,8 @@
 #include "main.h"
 /**
- *
+ *print_bi -converts dec to decimal
+ * @n: decimal number
+ * Return: times of number printed
  */
 
 int print_bi(unsigned int n)
