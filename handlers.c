@@ -87,7 +87,7 @@ int print_anything(va_list args)
 }
 
 /**
- * print_int - print an integer value
+ * print_i - print an integer value
  * @args: arguments
  *
  * Return: len
