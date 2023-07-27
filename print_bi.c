@@ -7,7 +7,7 @@
 
 int print_bi(unsigned int n)
 {
-	unsigned a, b, c, d, f;
+	unsigned int a, b, c, d, f;
 	int count = 0;
 
 	b = n;
