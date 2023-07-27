@@ -13,11 +13,16 @@ int print_percent(va_list args);
 int print_anything(va_list args);
 int print_bi(unsigned int n);
 
+/**
+ * struct ConvSpecifierInfo - Struct ConvSpecifierInfo
+ *
+ * @specifier: character specifier
+ * @handler: pointer to array handler
+ */
 struct ConvSpecifierInfo
 {
-  char specifier;
-  int (*handler)(va_list args);
+char specifier;
+int (*handler)(va_list args);
 };
 
 #endif
-
