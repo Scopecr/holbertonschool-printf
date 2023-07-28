@@ -43,21 +43,24 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 - 0 leading zero fill
 
 ## Example
+```c
+#include "main.h"
+#include <stdio.h>
 
-`#include "main.h"`
-`#include <stdio.h>`
+int main()
+{
+    char initial = 'L';
+    int age = 68;
 
-`int main()`
-`{`
-    `char initial = 'L';`
-    `int age = 68;`
-
-    `printf("Hello, %c. You are %d years young.", initial, age);`
-`}`
-
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+    printf("Hello, %c. You are %d years young.", initial, age);
+}
+```
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c -o _print
 
 Output:
-```Hello, L. You are 68 years young.`
+Hello, L. You are 68 years young.
+```
+
+## Authors
 
 Walter Carrion / Nadja Miranda
