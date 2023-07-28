@@ -37,27 +37,27 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 ## Flags and Description
 
-- left justify (right justification is the default)
-+ forces the result with a plus or minus sign (+ or -)
-(space) if no sign is to be written, a blank space is inserted before the value
-0 leading zero fill
+- - left justify (right justification is the default)
+- + forces the result with a plus or minus sign (+ or -)
+- (space) if no sign is to be written, a blank space is inserted before the value
+- 0 leading zero fill
 
 ## Example
 
-#include "main.h"
-#include <stdio.h>
+`#include "main.h"`
+`#include <stdio.h>`
 
-int main()
-{
-    char initial = 'L';
-    int age = 68;
+`int main()`
+`{`
+    `char initial = 'L';`
+    `int age = 68;`
 
-    printf("Hello, %c. You are %d years young.", initial, age);
-}
+    `printf("Hello, %c. You are %d years young.", initial, age);`
+`}`
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 Output:
-`Hello, L. You are 68 years young.
+```Hello, L. You are 68 years young.`
 
 Walter Carrion / Nadja Miranda
