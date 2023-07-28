@@ -54,7 +54,7 @@ int main()
 
     printf("Hello, %c. You are %d years young.", initial, age);
 }
-```
+
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c -o _print
 
 Output:
