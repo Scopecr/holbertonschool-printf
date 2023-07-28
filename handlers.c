@@ -9,7 +9,6 @@ const specifierInfo handlers[] =
 	{'c', &print_char},
 	{'s', &print_string},
 	{'%', &print_percent},
-	{'r', &print_anything},
 	{'i', &print_i},
 	{'d', &print_d},
 	{'0', NULL}
@@ -41,13 +40,15 @@ int print_string(va_list args)
 {
 	const char *str = va_arg(args, const char *);
 	int count = 0;
+	int len = 0;
 
 	while (*str)
 	{
 		count += write(1, str++, 1);
 	}
 	count++;
-	return (count);
+	count = len;
+	return (len + count);
 }
 /**
  * print_percent - print a percent sign
@@ -61,30 +62,6 @@ int print_percent(va_list args)
 	(void)args;
 	count++;
 	return (write(1, "%", 1));
-	return (count);
-}
-/**
- * print_anything - print any character
- * @args: arguments
- *
- * Return: arguments
- */
-int print_anything(va_list args)
-{
-	int count = 0;
-	const char *format = va_arg(args, const char *);
-
-	const char c = *format;
-
-	count += write(1, "%", 1);
-
-	format++;
-	if (c != '%')
-	{
-		count += write(1, &c, 1);
-	}
-
-	count++;
 	return (count);
 }
 
