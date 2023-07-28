@@ -1,28 +1,40 @@
-README.md
+# README.md _printf
 
-Group Project
+Group project for _printf function.
+
+## Description
 
 C library function printf, for printing formatted output to stdout.
-printf is part of standard library #include <stdio.h>
+printf is part of standard library #include <stdio.h> and takes format
+strings or format specifier to print the formatted output.
 
-Syntax:
+## Syntax
 printf("format String/format specifier", Arguments);
 
-Example:
+## Compiler
+
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+
+## Example
+
 int y = 10;
 
-printf("the number to be printed is: %i", y);
+`printf("the number to be printed is: %i", y);`
 
-char c = 't';
+Output: the number to be printed is: 10
 
-printf("print the following character: %c", c);
+`char c = 't';`
 
-Specifiers:
-"" start and end of the string to be printed
+`printf("print the following character: %c", c);`
+
+Output: print the following character: t
+
+## Specifiers
+`"" start and end of the string to be printed`
 format string: is a string that specifies the output
 format specifier: to print the value of any variable such as a character and an integer value
 
-Format Specifiers:
+## Format Specifiers
 %c print a single character
 %d print a decimal number
 %e print an exponential floating-point number
@@ -35,10 +47,10 @@ Format Specifiers:
 %% print a percent sign (or: \%)
 
 
-Flags and Description:
-(-) left justify (right justification is the default)
-(+) forces the result with a plus or minus sign (+ or -)
-(space) if no sign is to be written, a blank space is inserted before the value
-0 leading zero fill
+## Flags and Description
+`- left justify (right justification is the default)`
+`+ forces the result with a plus or minus sign (+ or -)`
+`(space) if no sign is to be written, a blank space is inserted before the value`
+`0 leading zero fill`
 
 Walter Carrion / Nadja Miranda
