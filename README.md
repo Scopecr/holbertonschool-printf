@@ -40,3 +40,5 @@ Flags and Description:
 (+) forces the result with a plus or minus sign (+ or -)
 (space) if no sign is to be written, a blank space is inserted before the value
 0 leading zero fill
+
+Walter Carrion / Nadja Miranda
