@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 		_putchar(*(unsigned char*)format);
 		len++;
 	}
-	if (format == '%')
+	if (*format == '%')
 	format++;
 	for (i = 0; i < 7; i++)
 	{
