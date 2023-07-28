@@ -1,4 +1,4 @@
-# README.md _printf
+# _printf
 
 Group project for _printf function.
 
