@@ -26,7 +26,7 @@ int print_char(va_list args)
 	int c = va_arg(args, int);
 
 	count++;
-	return (write(1, &c, 1));
+	return (_putchar(c));
 	return (count);
 }
 
