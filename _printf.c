@@ -39,11 +39,11 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			count += write(1, format, 1);
+			_putchar(*(unsigned char*)format);
 			len++;
 		}
 		format++;
 	}
 	va_end(args);
-	return (count);
+	return (len + count);
 }
