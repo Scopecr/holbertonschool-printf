@@ -35,7 +35,7 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 - %% print a percent sign (or: \%)
 
 
-## Flags and Description
+## Flags
 
 - - left justify (right justification is the default)
 - + forces the result with a plus or minus sign (+ or -)
