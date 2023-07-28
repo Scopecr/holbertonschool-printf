@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "main.h"
 
-const ConvSpecifierInfo convHandlers[] =
+const specifierInfo handlers[] =
 
 {
 	{'c', &print_char},

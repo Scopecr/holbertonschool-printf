@@ -3,7 +3,7 @@
 
 #include <stdarg.h>
 
-typedef struct ConvSpecifierInfo ConvSpecifierInfo;
+typedef struct specifierInfo specifierInfo;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -22,7 +22,7 @@ int print_hexalow(unsigned int n);
  * @specifier: character specifier
  * @handler: pointer to array handler
  */
-struct ConvSpecifierInfo
+struct specifierInfo
 {
 char specifier;
 int (*handler)(va_list args);

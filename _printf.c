@@ -10,7 +10,7 @@
  *
  * Return: count
  */
-extern const ConvSpecifierInfo convHandlers[];
+extern const specifierInfo handlers[];
 
 int _printf(const char *format, ...)
 {
@@ -29,9 +29,9 @@ int _printf(const char *format, ...)
 			format++;
 			for (i = 0; i < 7; i++)
 			{
-				if (*format == convHandlers[i].specifier)
+				if (*format == handlers[i].specifier)
 				{
-					count += convHandlers[i].handler(args);
+					count += handlers[i].handler(args);
 					break;
 				}
 			}
