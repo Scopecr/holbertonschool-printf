@@ -21,29 +21,30 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
+	if (*format == '\0')
+	{
+		_putchar('0');
+		return (-1);
 	while (*format)
 	{
-		if (*format == '%')
+		_putchar(*(unsigned char*)format);
+		len++;
+	}
+	if (*format == '%')
+	format++;
+	for (i = 0; i < 7; i++)
+	{
+		if (*format == handlers[i].specifier)
 		{
-			format++;
-			for (i = 0; i < 7; i++)
-			{
-				if (*format == handlers[i].specifier)
-				{
-					count += handlers[i].handler(args);
-					break;
-				}
-			}
-
+			count = count + handlers[i].handler(args);
 		}
 		else
 		{
 			_putchar(*(unsigned char*)format);
-			len++;
 		}
-		format++;
 	}
 	va_end(args);
-	return (len + count);
+	}
+	return (count);
+	
 }
