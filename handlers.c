@@ -11,7 +11,8 @@ const specifierInfo handlers[] =
 	{'%', &print_percent},
 	{'r', &print_anything},
 	{'i', &print_i},
-	{'d', &print_d}
+	{'d', &print_d},
+	{'0', NULL}
 };
 
 /**
