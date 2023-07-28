@@ -17,7 +17,7 @@ int print_bi(unsigned int n);
 int print_hexalow(unsigned int n);
 
 /**
- * struct ConvSpecifierInfo - Struct ConvSpecifierInfo
+ * struct specifierInfo - Struct specifierInfo
  *
  * @specifier: character specifier
  * @handler: pointer to array handler
