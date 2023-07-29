@@ -79,11 +79,11 @@ int print_i(va_list args)
 		return (1);
 	}
 
-/**	if (num < 0)
+	if (num < 0)
 	{
 		_putchar('-');
 		num = -num;
-	}*/
+	}
 
 	while (num != 0)
 	{
@@ -117,11 +117,11 @@ int print_d(va_list args)
 		return (_putchar('0'));
 	}
 
-/**	if (num < 0)
+	if (num < 0)
 	{
 		_putchar('-');
 		num = -num;
-	}*/
+	}
 
 	while (num != 0)
 	{
