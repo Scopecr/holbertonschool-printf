@@ -12,10 +12,10 @@
  */
 int print_char(va_list args)
 {
-	
+
 	int c = va_arg(args, int);
 
-	
+
 	_putchar(c);
 	return (1);
 }
@@ -31,7 +31,7 @@ int print_string(va_list args)
 	const char *str = va_arg(args, const char *);
 	int count = 0;
 
-	
+
 	if (str != NULL)
 	{
 		while (str[count])
@@ -59,7 +59,7 @@ int print_string(va_list args)
  */
 int print_percent(va_list args)
 {
-	
+
 	(void)args;
 	return (write(1, "%", 1));
 	return (1);
@@ -82,7 +82,7 @@ int print_i(va_list args)
 
 	if (num == 0)
 	{
-		
+
 		_putchar('0');
 		return (0);
 	}
@@ -93,7 +93,7 @@ int print_i(va_list args)
 		num = -num;
 	}
 
-	
+
 	num_str[len++] = num % 10 + '0';
 	num /= 10;
 

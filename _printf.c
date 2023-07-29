@@ -14,7 +14,7 @@
 
 int _printf(const char *format, ...)
 {
-	
+
 	int count = 0, c = 0;
 	va_list args;
 
@@ -39,10 +39,10 @@ int lenghtvariable(const char *format, int c, va_list args)
 {
 	int count;
 
-	
+
 	if (format == NULL)
 	{
-		
+
 		return (-1);
 	}
 
@@ -83,7 +83,7 @@ int printVariables(const char *format, int c, va_list args)
 {
 	int count = 0, i, valid = 0;
 
-	
+
 	spec_dt handlers[] = {
 		{"c", print_char},
 		{"s", print_string},
