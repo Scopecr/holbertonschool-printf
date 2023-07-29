@@ -66,68 +66,64 @@ int print_percent(va_list args)
 }
 
 /**
- * print_i - print an integer value
- * @args: arguments
+ * print_int_i - print a unsigned integer.
+ * @args: Parameters.
  *
- * Return: len
+ * Return: Count.
  */
-int print_i(va_list args)
-{
-	int num_str[12];
-	int num;
-	int len = 0;
-	int i;
 
-	num = va_arg(args, int);
+int print_int_i(va_list args)
+{
+	int count = 0;
+	char num_str[12];
+	int len = 0, i, num = va_arg(args, int);
 
 	if (num == 0)
 	{
-
-		_putchar('0');
-		return (0);
+		write(1, "0", 1);
+		count++;
 	}
-
-	if (num < 0)
+	else
 	{
-		_putchar('-');
-		num = -num;
+		while (num != 0)
+		{
+			num_str[len++] = num % 10 + '0';
+			num /= 10;
+		}
+
+		for (i = len - 1; i >= 0; i--)
+		{
+			write(1, &num_str[i], 1);
+			count++;
+		}
 	}
 
-
-	num_str[len++] = num % 10 + '0';
-	num /= 10;
-
-	for (i = len - 1; i >= 0; i--)
-	{
-		_putchar(num_str[i]);
-	}
-	return (len);
+	return (count);
 }
 
 /**
- * print_d - print decimal numbers
- * @args: arguments
+ * print_int_d - print a signed integer.
+ * @args: parameters.
  *
- * Return: len
+ * Return: Count.
  */
 
-int print_d(va_list args)
+int print_int_d(va_list args)
 {
-	int num_str[12];
-	int num;
-	int len = 0;
-	int i;
-
-	num = va_arg(args, int);
+	int count = 0;
+	char num_str[12];
+	int len = 0, i, num = va_arg(args, int);
 
 	if (num == 0)
 	{
-		return (_putchar('0'));
+		write(1, "0", 1);
+		count++;
 	}
 
 	if (num < 0)
 	{
-		_putchar('-');
+		write(1, "-", 1);
+		count++;
 		num = -num;
 	}
 
@@ -139,7 +135,10 @@ int print_d(va_list args)
 
 	for (i = len - 1; i >= 0; i--)
 	{
-		_putchar(num_str[i]);
+		write(1, &num_str[i], 1);
+		count++;
 	}
-	return (len);
+
+	return (count);
 }
+
