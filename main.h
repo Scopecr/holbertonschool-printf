@@ -27,4 +27,7 @@ int print_d(va_list args);
 int print_bi(unsigned int n);
 int print_hexalow(unsigned int n);
 
+int printVariables(const char *format, int c, va_list args);
+int lenghtvariable(const char *format, int c, va_list args);
+
 #endif

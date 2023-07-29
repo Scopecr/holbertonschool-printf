@@ -14,9 +14,74 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i;
 	
-	int count = 0, c = 0, valid = 0;
+	int count = 0, c = 0;
+	va_list args;
+
+	va_start(args, format);
+
+	count += lenghtvariable(format, c, args);
+	va_end(args);
+	return (count);
+}
+
+/**
+ * lenghtvariable - counts any lettr that isnt a variable
+ * @format: pointer to a constant character
+ * @args: list of arguments
+ * @c: current letter of format we are in
+ *
+ * Return: count
+ */
+
+
+int lenghtvariable(const char *format, int c, va_list args)
+{
+	int count;
+
+	
+	if (format == NULL)
+	{
+	
+		return (-1);
+	}
+
+	while (format[c])
+	{
+		if (format[c] == '%')
+		{
+			if (format[c + 1] == '\0')
+			{
+				return (-1);
+			}
+			c++;
+
+			count += printVariables(format, c, args);
+		}
+		else
+		{
+			_putchar(format[c]);
+			count++;
+		}
+
+		c++;
+	}
+
+	return (count);
+}
+
+/**
+ * printVariables - prints the variables
+ * @format: pointer to a constant character
+ * @args: list of arguments
+ * @c: current letter of format we are in
+ *
+ * Return: count
+ */
+
+int printVariables(const char *format, int c, va_list args)
+{
+	int count = 0, i, valid = 0;
 
 	
 	spec_dt handlers[] = {
@@ -28,56 +93,21 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	va_list args;
 
-	va_start(args, format);
-	
-	if (format == NULL)
+	for (i = 0; i < 5; i++)
 	{
-		
-		return (-1);
+		if (format[c] == *handlers[i].specifier)
+		{
+			valid = 1;
+			count += handlers[i].handler(args);
+		}
 	}
 
-	while (format[c])
+	if (valid == 0)
 	{
-		
-		if (format[c] == '%')
-		{
-			
-			if (format[c + 1] == '\0')
-			{
-				return (-1);
-			}
-			c++;
-
-			
-			for (i = 0; i < 5; i++)
-			{
-				if (format[c] == *handlers[i].specifier)
-				{
-					valid = 1;
-					/* += looks cleaner */
-					count += handlers[i].handler(args);
-				}
-				
-			}
-			
-			if (valid == 0)
-			{
-				count += _putchar('%');
-				count += _putchar(format[c]);
-			}
-		}
-		
-		else
-		{
-			_putchar(format[c]);
-			count++;
-		}
-
-		c++;
+		count += _putchar('%');
+		count += _putchar(format[c]);
 	}
 
-	va_end(args);
 	return (count);
 }
