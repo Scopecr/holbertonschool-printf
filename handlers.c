@@ -81,7 +81,6 @@ int print_i(va_list args)
 		num = -num;
 	}
 
-	
 	num_str[len++] = num % 10 + '0';
 	num /= 10;
 
