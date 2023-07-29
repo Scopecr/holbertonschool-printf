@@ -82,7 +82,7 @@ int print_i(va_list args)
 
 	if (num == 0)
 	{
-		/* this was returning 1 u dunces bcs there was a character inside putchar */
+
 		_putchar('0');
 		return (1);
 	}
@@ -98,7 +98,7 @@ int print_i(va_list args)
         num_str[len++] = num % 10 + '0';
         num /= 10;
     }
-	
+
 	for (i = len - 1; i >= 0; i--)
 	{
 		_putchar(num_str[i]);
