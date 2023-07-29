@@ -42,7 +42,7 @@ int lenghtvariable(const char *format, int c, va_list args)
 	
 	if (format == NULL)
 	{
-	
+		
 		return (-1);
 	}
 
