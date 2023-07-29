@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/user/holbertonschool-printf/holbertonschool-printf-6",
-      "program": "/home/user/holbertonschool-printf/holbertonschool-printf-6/build/Debug/outDebug",
+      "cwd": "/home/user/holbertonschool-printf/holbertonschool-printf-8",
+      "program": "/home/user/holbertonschool-printf/holbertonschool-printf-8/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

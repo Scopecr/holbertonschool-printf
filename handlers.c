@@ -3,17 +3,6 @@
 #include <unistd.h>
 #include "main.h"
 
-const specifierInfo handlers[] =
-
-{
-	{'c', &print_char},
-	{'s', &print_string},
-	{'%', &print_percent},
-	{'i', &print_i},
-	{'d', &print_d},
-	{'0', NULL}
-};
-
 /**
  * print_char - print a character
  * @args: arguments
@@ -22,12 +11,12 @@ const specifierInfo handlers[] =
  */
 int print_char(va_list args)
 {
-	int count = 0;
+	
 	int c = va_arg(args, int);
 
-	count++;
-	return (_putchar(c));
-	return (count);
+	
+	_putchar(c);
+	return (1);
 }
 
 /**
@@ -40,15 +29,15 @@ int print_string(va_list args)
 {
 	const char *str = va_arg(args, const char *);
 	int count = 0;
-	int len = 0;
 
-	while (*str)
+	
+	while (str[count])
 	{
-		count += write(1, str++, 1);
+		_putchar(str[count]);
+		count++;
 	}
-	count++;
-	count = len;
-	return (len + count);
+	
+	return (count);
 }
 /**
  * print_percent - print a percent sign
@@ -58,11 +47,10 @@ int print_string(va_list args)
  */
 int print_percent(va_list args)
 {
-	int count = 0;
+	
 	(void)args;
-	count++;
 	return (write(1, "%", 1));
-	return (count);
+	return (1);
 }
 
 /**
@@ -82,7 +70,9 @@ int print_i(va_list args)
 
 	if (num == 0)
 	{
-		return (_putchar('0'));
+		
+		_putchar('0');
+		return (0);
 	}
 
 	if (num < 0)
@@ -91,11 +81,9 @@ int print_i(va_list args)
 		num = -num;
 	}
 
-	while (num != 0)
-	{
-		num_str[len++] = num % 10 + '0';
-		num /= 10;
-	}
+	
+	num_str[len++] = num % 10 + '0';
+	num /= 10;
 
 	for (i = len - 1; i >= 0; i--)
 	{

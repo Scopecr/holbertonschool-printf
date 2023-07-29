@@ -3,7 +3,19 @@
 
 #include <stdarg.h>
 
-typedef struct specifierInfo specifierInfo;
+/* Mainly putting stuff in correct order */
+
+/**
+ * struct specifierInfo - Struct specifierInfo
+ *
+ * @specifier: character specifier
+ * @handler: pointer to array handler
+ */
+typedef struct specifierInfo
+{
+    char *specifier;
+    int (*handler)(va_list args);
+} spec_dt;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -15,17 +27,5 @@ int print_i(va_list args);
 int print_d(va_list args);
 int print_bi(unsigned int n);
 int print_hexalow(unsigned int n);
-
-/**
- * struct specifierInfo - Struct specifierInfo
- *
- * @specifier: character specifier
- * @handler: pointer to array handler
- */
-struct specifierInfo
-{
-char specifier;
-int (*handler)(va_list args);
-};
 
 #endif
