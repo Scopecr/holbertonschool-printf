@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include "main.h"
 
+
 /**
  * print_char - print a character
  * @args: arguments
@@ -14,7 +15,6 @@ int print_char(va_list args)
 	
 	int c = va_arg(args, int);
 
-	
 	_putchar(c);
 	return (1);
 }
@@ -30,14 +30,26 @@ int print_string(va_list args)
 	const char *str = va_arg(args, const char *);
 	int count = 0;
 
-	
-	while (str[count])
+
+	if (str != NULL)
 	{
-		_putchar(str[count]);
-		count++;
+		while (str[count])
+		{
+			_putchar(str[count]);
+			count++;
+		}
+
+		
+		return (count);
 	}
-	
-	return (count);
+
+	_putchar('(');
+	_putchar('n');
+	_putchar('u');
+	_putchar('l');
+	_putchar('l');
+	_putchar(')');
+	return (6);
 }
 /**
  * print_percent - print a percent sign
@@ -48,7 +60,6 @@ int print_string(va_list args)
 int print_percent(va_list args)
 {
 	
-	(void)args;
 	return (write(1, "%", 1));
 	return (1);
 }
@@ -81,6 +92,7 @@ int print_i(va_list args)
 		num = -num;
 	}
 
+	
 	num_str[len++] = num % 10 + '0';
 	num /= 10;
 
