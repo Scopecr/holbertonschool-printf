@@ -66,64 +66,69 @@ int print_percent(va_list args)
 }
 
 /**
- * print_int_i - print a unsigned integer.
- * @args: Parameters.
+ * print_i - print an integer value
+ * @args: arguments
  *
- * Return: Count.
+ * Return: len
  */
-
-int print_int_i(va_list args)
+int print_i(va_list args)
 {
-	int count = 0;
-	char num_str[12];
-	int len = 0, i, num = va_arg(args, int);
+	int num_str[12];
+	int num;
+	int len = 0;
+	int i;
+
+	num = va_arg(args, int);
 
 	if (num == 0)
 	{
-		write(1, "0", 1);
-		count++;
-	}
-	else
-	{
-		while (num != 0)
-		{
-			num_str[len++] = num % 10 + '0';
-			num /= 10;
-		}
-
-		for (i = len - 1; i >= 0; i--)
-		{
-			write(1, &num_str[i], 1);
-			count++;
-		}
-	}
-
-	return (count);
-}
-
-/**
- * print_int_d - print a signed integer.
- * @args: parameters.
- *
- * Return: Count.
- */
-
-int print_int_d(va_list args)
-{
-	int count = 0;
-	char num_str[12];
-	int len = 0, i, num = va_arg(args, int);
-
-	if (num == 0)
-	{
-		write(1, "0", 1);
-		count++;
+		/* this was returning 1 u dunces bcs there was a character inside putchar */
+		_putchar('0');
+		return (1);
 	}
 
 	if (num < 0)
 	{
-		write(1, "-", 1);
-		count++;
+		_putchar('-');
+		num = -num;
+	}
+
+	while (num != 0)
+    {
+        num_str[len++] = num % 10 + '0';
+        num /= 10;
+    }
+	
+	for (i = len - 1; i >= 0; i--)
+	{
+		_putchar(num_str[i]);
+	}
+	return (len);
+}
+/**
+ * print_d - print decimal numbers
+ * @args: arguments
+ *
+ * Return: len
+ */
+
+int print_d(va_list args)
+{
+	int num_str[12];
+	int num;
+	int len = 0;
+	int i;
+
+	num = va_arg(args, int);
+
+	if (num == 0)
+	{
+		return (_putchar('0'));
+	}
+
+	if (num < 0)
+	{
+		_putchar('-');
 		num = -num;
 	}
 
@@ -135,10 +140,8 @@ int print_int_d(va_list args)
 
 	for (i = len - 1; i >= 0; i--)
 	{
-		write(1, &num_str[i], 1);
-		count++;
+		_putchar(num_str[i]);
 	}
-
-	return (count);
+	return (len);
 }
 
