@@ -13,8 +13,8 @@
  */
 typedef struct specifierInfo
 {
-    char *specifier;
-    int (*handler)(va_list args);
+char *specifier;
+int (*handler)(va_list args);
 } spec_dt;
 
 int _putchar(char c);
@@ -30,5 +30,4 @@ int print_hexalow(unsigned int n);
 
 int printVariables(const char *format, int c, va_list args);
 int lenghtvariable(const char *format, int c, va_list args);
-
 #endif

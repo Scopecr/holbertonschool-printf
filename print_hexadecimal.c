@@ -33,8 +33,11 @@ int print_hexalow(unsigned int n)
 		}
 		n /= 16;
 	}
-	for (j = i - 1;j >= 0; j --)
+	for (j = i - 1; j >= 0; j--)
+	{
 		_putchar(hexadecimal[j]);
 	free(hexadecimal);
+	}
+
 	return (count);
 }

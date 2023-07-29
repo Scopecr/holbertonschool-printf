@@ -14,7 +14,9 @@ int print_hexaup(unsigned int n)
 	char *hexadecimal;
 
 	if (n == 0)
-		return(_putchar('0'));
+	{
+		return (_putchar('0'));
+	}
 	while (num_copy != 0)
 	{
 		num_copy /= 16;
@@ -36,7 +38,10 @@ int print_hexaup(unsigned int n)
 		n /= 16;
 	}
 	for (j = i - 1; j >= 0; j++)
+	{
 		_putchar(hexadecimal[j]);
 	free(hexadecimal);
+	}
+
 	return (count);
 }

@@ -25,5 +25,6 @@ int print_bi(unsigned int n)
 		_putchar(d + '0');
 		count++;
 	}
+
 	return (count);
 }
