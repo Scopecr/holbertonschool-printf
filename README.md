@@ -63,4 +63,7 @@ Hello, L. You are 68 years young.
 
 ## Authors
 
-Walter Carrion / Nadja Miranda
+-Walter Carrion
+
+-Nadja Miranda <nadeshda02@hotmail.com> <https://www.linkedin.com/in/nadja-miranda-schnuppe/> <https://github.com/nadeshda18>
+
