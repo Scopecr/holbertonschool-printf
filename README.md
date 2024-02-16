@@ -5,7 +5,6 @@
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3E1djV1MmJwZjJ0ZzBscmVxaWtlaXIzbWFxM2cyZ2JvdWc4OTV0MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GwtfUx2P2HnvByDZdg/giphy.gif", />
 </a>
 
-Group project for _printf function.
 
 ## Description
 
@@ -68,7 +67,9 @@ Hello, L. You are 68 years young.
 
 ## Authors
 
--Walter Carrion <wjrcarrion@gmail.com> <https://www.linkedin.com/in/walter-carrion-3a4b29296/> <https://github.com/Scopecr>
+<br>
 
--Nadja Miranda <nadeshda02@hotmail.com> <https://www.linkedin.com/in/nadja-miranda-schnuppe/> <https://github.com/nadeshda18>
+- Walter Carrion [email](wjrcarrion@gmail.com) [Linked in](https://www.linkedin.com/in/walter-carrion-3a4b29296/) [github](https://github.com/Scopecr)
+
+- Nadja Miranda [email](nadeshda02@hotmail.com) [Linked in](https://www.linkedin.com/in/nadja-miranda-schnuppe/) [github](https://github.com/nadeshda18)
 
