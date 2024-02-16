@@ -66,10 +66,9 @@ Hello, L. You are 68 years young.
 ```
 
 ## Authors
-
 <br>
 
-- Walter Carrion [email](wjrcarrion@gmail.com) [Linked in](https://www.linkedin.com/in/walter-carrion-3a4b29296/) [github](https://github.com/Scopecr)
+- Walter Carrion [email](wjrcarrion@gmail.com) [Linkedin](https://www.linkedin.com/in/walter-carrion-3a4b29296/) [github](https://github.com/Scopecr)
 
-- Nadja Miranda [email](nadeshda02@hotmail.com) [Linked in](https://www.linkedin.com/in/nadja-miranda-schnuppe/) [github](https://github.com/nadeshda18)
+- Nadja Miranda [email](nadeshda02@hotmail.com) [Linkedin](https://www.linkedin.com/in/nadja-miranda-schnuppe/) [github](https://github.com/nadeshda18)
 
